@@ -1,0 +1,16 @@
+[package]
+name = "askme-rs"
+version = "0.1.0"
+description = "Simple flashcard application"
+authors = ["Franciszek Adamski <adams.franciszek@wp.pl>"]
+license = "MIT"
+edition = "2021"
+
+[dependencies]
+crossterm = "0.28.1"
+ratatui = "0.29.0"
+color-eyre = "0.6.3"
+clap = { version = "4.5.35", features = ["derive"] }
+rand = "0.9.0"
+csv = "1.3.1"
+serde = "1.0.219"

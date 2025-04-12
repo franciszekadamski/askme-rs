@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+cargo build --release && cp target/release/askme-rs /home/$USER/.local/bin/askme 
