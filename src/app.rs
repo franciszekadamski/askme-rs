@@ -4,7 +4,7 @@ use ratatui::{
     DefaultTerminal, Frame,
     style::Stylize,
     text::Line,
-    widgets::{Block, Paragraph},
+    widgets::{Block, Paragraph, Wrap},
 };
 
 use crate::deck::Deck;
@@ -44,6 +44,7 @@ impl App {
         let formatted_text = format!("\n{text}");
         frame.render_widget(
             Paragraph::new(formatted_text)
+                .wrap(Wrap { trim: true })
                 .block(Block::bordered().title(title))
                 .centered(),
             frame.area(),
