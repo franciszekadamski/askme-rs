@@ -46,7 +46,7 @@ impl App {
             Paragraph::new(formatted_text)
                 .wrap(Wrap { trim: true })
                 .block(Block::bordered().title(title))
-                .centered(),
+                .left_aligned(),
             frame.area(),
         )
     }
