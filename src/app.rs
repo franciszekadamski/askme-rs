@@ -4,7 +4,7 @@ use ratatui::{
     DefaultTerminal, Frame,
     style::Stylize,
     text::Line,
-    widgets::{Block, Paragraph, Wrap},
+    widgets::{Block, Padding, Paragraph, Wrap},
 };
 
 use crate::deck::Deck;
@@ -45,8 +45,18 @@ impl App {
         frame.render_widget(
             Paragraph::new(formatted_text)
                 .wrap(Wrap { trim: true })
-                .block(Block::bordered().title(title))
-                .left_aligned(),
+                .block(
+                    Block::bordered()
+                        .title(title)
+                        .padding(Padding::new(
+                            0,
+                            0,
+                            frame.area().height/2 - 5,
+                            0
+                        )
+                    )
+                )
+                .centered(),
             frame.area(),
         )
     }
@@ -69,6 +79,7 @@ impl App {
             (_, KeyCode::Char('l')) => self.deck.next(),
             (_, KeyCode::Char('h')) => self.deck.prev(),
             (_, KeyCode::Char('k')) => self.deck.flip_current_card(),
+            (_, KeyCode::Char('j')) => self.deck.flip_current_card(),
             (_, KeyCode::Char('s')) => self.deck.shuffle(),
             _ => {}
         }

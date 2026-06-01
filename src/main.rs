@@ -1,10 +1,8 @@
-use color_eyre::Result;
 use clap::Parser;
 
 mod app;
 mod crossterm;
 mod deck;
-use crate::deck::Deck;
 
 
 #[derive(Debug, Parser)]
